@@ -5,6 +5,13 @@ from scipy.integrate import odeint  # package to integrate ODE
 from parameters import *
 
 
+def FunctionOfTime(t):
+    # print(len(t1))
+    time = 2 / (1 + np.exp(t))
+    print(time)
+    return time
+
+
 def Diff(y1, t1):
     (
         SCoV2_ACE2,
@@ -47,10 +54,10 @@ def Diff(y1, t1):
     # Eq.9
     dRdRp_gRNA = k_RdRp_on * RdRp * gRNA - k_RdRp_Prime * RdRp_gRNA
     # Eq.10
-    dT_RdRpgRNA = k_RdRp_Prime * RdRp_gRNA - k_RdRp_Term * T_RdRpgRNA
+    dT_RdRpgRNA = k_RdRp_Prime * RdRp_gRNA - FunctionOfTime(t1) * T_RdRpgRNA
     # Eq.13
     dnRNA = (
-        k_RdRp_Term * T_RdRpgRNA
+        FunctionOfTime(t1) * T_RdRpgRNA
         - (k_RdRp_on * RdRp + (math.log(2) / h_nRNA)) * nRNA
         + k_RdRp_Prime * RdRp_nRNA
     )
@@ -59,15 +66,15 @@ def Diff(y1, t1):
     # Eq.15
     dT_RdRpnRNA = (
         k_RdRp_Prime * (RdRp_nRNA)
-        - p * (k_RdRp_Term * T_RdRpnRNA)
+        - p * (FunctionOfTime(t1) * T_RdRpnRNA)
         - (1 - p) * (k_RdRp_Term_sg * T_RdRpnRNA)
     )
     # Eq.16
     dRdRp = (
         k_Cleav * pp1
         - (k_RdRp_on * gRNA + k_RdRp_on * nRNA + (math.log(2) / h_RdRp)) * RdRp
-        + k_RdRp_Term * T_RdRpgRNA
-        + p * (k_RdRp_Term * T_RdRpnRNA)
+        + FunctionOfTime(t1) * T_RdRpgRNA
+        + p * (FunctionOfTime(t1) * T_RdRpnRNA)
         + (1 - p) * (k_RdRp_Term_sg * T_RdRpnRNA)
     )
     # Eq.18
@@ -76,7 +83,7 @@ def Diff(y1, t1):
         - (k_Rib_on * Rib + a * (k_NCap * N) + (math.log(2) / h_gRNA)) * gRNA
         + (k_Rib_Prime * (Rib_gRNA))
         + (k_RdRp_Prime * (RdRp_gRNA))
-        + p * (k_RdRp_Term * T_RdRpnRNA)
+        + p * (FunctionOfTime(t1) * T_RdRpnRNA)
     )
     # Eq.19
     dsgRNA = (
@@ -199,19 +206,8 @@ y1 = [
     Vir_0,
     SCoV2_0,
 ]
-t1 = np.linspace(0, 6 * 60 * 60, 6 * 60 * 60)
+t1 = np.linspace(0, 30 * 60 * 60, 30 * 60 * 60)
 fig2 = odeint(Diff, y1, t1)
-
-
-"""
-# Plot the cgRNA concentration over time
-plt.figure()
-plt.plot(t1 / 3600, fig2[:, 2], label="c")
-plt.xlabel("Time (hr)")
-plt.ylabel("Concentration (µM)")
-plt.legend()
-plt.title("Coated genomic RNA")
-plt.show()
 
 
 plt.figure()
@@ -221,62 +217,3 @@ plt.ylabel("Concentration (µM)")
 plt.legend()
 plt.title("genomic RNA")
 plt.show()
-
-
-plt.plot(t1 / 3600, fig2[:, 5], label="g")
-plt.title("pp1a/1ab")
-plt.ylabel("Concentration (uM)")
-plt.xlabel("Time(hr)")
-plt.legend()
-plt.show()
-
-
-plt.plot(t1 / 3600, fig2[:, 11])
-plt.title("RdRp")
-plt.ylabel("Concentration (uM)")
-plt.xlabel("Time(hr)")
-plt.legend()
-plt.show()
-
-plt.plot(t1 / 3600, fig2[:, 8], label="h")
-plt.title("Negative-sense RNA")
-plt.ylabel("Concentration (uM)")
-plt.xlabel("Time(hr)")
-plt.legend()
-plt.show()
-
-plt.plot(t1 / 3600, fig2[:, 13])
-plt.title("Sub-genomic RNA")
-plt.ylabel("Concentration (uM)")
-plt.xlabel("Time(hr)")
-plt.legend()
-plt.show()
-
-plt.plot(t1 / 3600, fig2[:, 18], label="f")
-plt.title("S,E,AND M in cytoplasm")
-plt.ylabel("Concentration (uM)")
-plt.xlabel("Time(hr)")
-plt.legend()
-plt.show()
-
-plt.plot(t1 / 3600, fig2[:, 21], label="d")
-plt.title("Nucleocapsid")
-plt.ylabel("Concentration (uM)")
-plt.xlabel("Time(hr)")
-plt.legend()
-plt.show()
-
-plt.plot(t1 / 3600, fig2[:, 20], label="e")
-plt.title("S,E, and M in ERGIC")
-plt.ylabel("Concentration (uM)")
-plt.xlabel("Time(hr)")
-plt.legend()
-plt.show()
-
-plt.plot(t1 / 3600, (fig2[:, 22] + fig2[:, 23]) / (2 * 10**-6), label="b")
-plt.title("Baseline viral production")
-plt.ylabel("Total virions")
-plt.xlabel("Time(hr)")
-plt.legend()
-plt.show()
-"""
