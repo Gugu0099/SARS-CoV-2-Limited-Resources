@@ -68,3 +68,5 @@ k_RdRp_Term = k_RdRp_Step / l_gRNA
 k_RdRp_Term_sg = k_RdRp_Step / l_sgRNA
 k_Rib_Term_SEM = k_Rib_Step / l_SEM
 k_Rib_Term_N = k_Rib_Step / l_N
+
+# Parameters for SA

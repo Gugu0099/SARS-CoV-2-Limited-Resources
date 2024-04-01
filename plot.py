@@ -8,7 +8,6 @@ from parameters import *
 def FunctionOfTime(t):
     # print(len(t1))
     time = 2 / (1 + np.exp(t))
-    print(time)
     return time
 
 
@@ -54,10 +53,12 @@ def Diff(y1, t1):
     # Eq.9
     dRdRp_gRNA = k_RdRp_on * RdRp * gRNA - k_RdRp_Prime * RdRp_gRNA
     # Eq.10
-    dT_RdRpgRNA = k_RdRp_Prime * RdRp_gRNA - FunctionOfTime(t1) * T_RdRpgRNA
+    dT_RdRpgRNA = (
+        k_RdRp_Prime * RdRp_gRNA - k_RdRp_Term * FunctionOfTime(t1) * T_RdRpgRNA
+    )
     # Eq.13
     dnRNA = (
-        FunctionOfTime(t1) * T_RdRpgRNA
+        (k_RdRp_Term * FunctionOfTime(t1) * T_RdRpgRNA)
         - (k_RdRp_on * RdRp + (math.log(2) / h_nRNA)) * nRNA
         + k_RdRp_Prime * RdRp_nRNA
     )
@@ -66,14 +67,14 @@ def Diff(y1, t1):
     # Eq.15
     dT_RdRpnRNA = (
         k_RdRp_Prime * (RdRp_nRNA)
-        - p * (FunctionOfTime(t1) * T_RdRpnRNA)
+        - p * (k_RdRp_Term * FunctionOfTime(t1) * T_RdRpnRNA)
         - (1 - p) * (k_RdRp_Term_sg * T_RdRpnRNA)
     )
     # Eq.16
     dRdRp = (
         k_Cleav * pp1
         - (k_RdRp_on * gRNA + k_RdRp_on * nRNA + (math.log(2) / h_RdRp)) * RdRp
-        + FunctionOfTime(t1) * T_RdRpgRNA
+        + (k_RdRp_Term * FunctionOfTime(t1) * T_RdRpgRNA)
         + p * (FunctionOfTime(t1) * T_RdRpnRNA)
         + (1 - p) * (k_RdRp_Term_sg * T_RdRpnRNA)
     )
@@ -83,7 +84,7 @@ def Diff(y1, t1):
         - (k_Rib_on * Rib + a * (k_NCap * N) + (math.log(2) / h_gRNA)) * gRNA
         + (k_Rib_Prime * (Rib_gRNA))
         + (k_RdRp_Prime * (RdRp_gRNA))
-        + p * (FunctionOfTime(t1) * T_RdRpnRNA)
+        + p * (k_RdRp_Term * FunctionOfTime(t1) * T_RdRpnRNA)
     )
     # Eq.19
     dsgRNA = (
@@ -206,14 +207,27 @@ y1 = [
     Vir_0,
     SCoV2_0,
 ]
-t1 = np.linspace(0, 30 * 60 * 60, 30 * 60 * 60)
+t1 = np.linspace(0, 15 * 60 * 60, 15 * 60 * 60)
 fig2 = odeint(Diff, y1, t1)
 
+array = []
+for i in range(15 * 60 * 60):
+    time = FunctionOfTime(i)
+    array.append(time)
 
 plt.figure()
-plt.plot(t1 / 3600, fig2[:, 12], label="i")
+plt.plot(t1 / 3600, fig2[:, 12], label="gRNA")
 plt.xlabel("Time (hr)")
 plt.ylabel("Concentration (µM)")
+# plt.yscale("log")
 plt.legend()
 plt.title("genomic RNA")
 plt.show()
+"""
+plt.figure()
+plt.plot(array)
+plt.xlabel("Time (hr)")
+plt.ylabel("Function of Time")
+plt.legend()
+plt.show()
+"""
