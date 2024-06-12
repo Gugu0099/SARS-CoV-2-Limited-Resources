@@ -30,23 +30,39 @@ NCap_0 = 0
 Vir_0 = 0
 
 # parameters
+# 1
 k_TMP = 0.0043  # s^-1
+# 2
 k_Rel = 0.005  # s^-1
+# 3
 k_UC = 0.005  # s^-1
+# 4
 k_Rib_on = 0.5  # um^-1s^1
+# 5
 k_Rib_Step = 6  # aa/s
+# 6
 k_Cleav = 0.021  # s^-1
+# 7
 h_pp1 = 1 * 60 * 60  # s
+# 8
 k_RdRp_on = 0.09  # um^-1s^1
+# 9
 h_RdRp = 2 * 60 * 60  # s
+# 10
 k_RdRp_Step = 20  # nt/s
+# 11
 k_NCap = 0.00001  # um^-1s^1
+# 12
 k_Bud = 0.01  # um^-1s^1
+# 13
 h_SP = 30 * 60  # s
 h_gRNA = 1 * 60 * 60  # s
 h_nRNA = 5 * 60  # s
+# 14
 k_Cyto_ER = 0.002  # s^-1
+# 15
 k_ER_ERGIC = 0.002  # s^-1
+# 16
 k_Exo = 0.0002  # s^-1
 p = 0.75
 lamda = 0.7
@@ -68,6 +84,3 @@ k_RdRp_Term = k_RdRp_Step / l_gRNA
 k_RdRp_Term_sg = k_RdRp_Step / l_sgRNA
 k_Rib_Term_SEM = k_Rib_Step / l_SEM
 k_Rib_Term_N = k_Rib_Step / l_N
-
-# Change parameters from 0.001 to 1000
-# 

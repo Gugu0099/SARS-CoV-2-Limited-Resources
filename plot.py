@@ -1,18 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import math
-from scipy.integrate import odeint  # package to integrate ODE
+from scipy.integrate import odeint, ode # package to integrate ODE
 from parameters import *
 
 
-def FunctionOfTime(t):
-    # print(len(t1))
-    time = 2 / (1 + np.exp(t))
-    return time
-
-
 def Diff(y1, t1):
-    (
+    [
         SCoV2_ACE2,
         endoSCoV2,
         cgRNA,
@@ -37,7 +31,7 @@ def Diff(y1, t1):
         NCap,
         Vir,
         SCoV2,
-    ) = y1
+     ] = y1
     # EQ.1
     d_SCoV2_ACE2 = (-k_TMP) * (SCoV2_ACE2)
     # EQ.2
@@ -53,12 +47,10 @@ def Diff(y1, t1):
     # Eq.9
     dRdRp_gRNA = k_RdRp_on * RdRp * gRNA - k_RdRp_Prime * RdRp_gRNA
     # Eq.10
-    dT_RdRpgRNA = (
-        k_RdRp_Prime * RdRp_gRNA - k_RdRp_Term * FunctionOfTime(t1) * T_RdRpgRNA
-    )
+    dT_RdRpgRNA = k_RdRp_Prime * RdRp_gRNA - k_RdRp_Term * T_RdRpgRNA
     # Eq.13
     dnRNA = (
-        (k_RdRp_Term * FunctionOfTime(t1) * T_RdRpgRNA)
+        (k_RdRp_Term * T_RdRpgRNA)
         - (k_RdRp_on * RdRp + (math.log(2) / h_nRNA)) * nRNA
         + k_RdRp_Prime * RdRp_nRNA
     )
@@ -67,15 +59,15 @@ def Diff(y1, t1):
     # Eq.15
     dT_RdRpnRNA = (
         k_RdRp_Prime * (RdRp_nRNA)
-        - p * (k_RdRp_Term * FunctionOfTime(t1) * T_RdRpnRNA)
+        - p * (k_RdRp_Term * T_RdRpnRNA)
         - (1 - p) * (k_RdRp_Term_sg * T_RdRpnRNA)
     )
     # Eq.16
     dRdRp = (
         k_Cleav * pp1
         - (k_RdRp_on * gRNA + k_RdRp_on * nRNA + (math.log(2) / h_RdRp)) * RdRp
-        + (k_RdRp_Term * FunctionOfTime(t1) * T_RdRpgRNA)
-        + p * (FunctionOfTime(t1) * T_RdRpnRNA)
+        + (k_RdRp_Term * T_RdRpgRNA)
+        + p * (k_RdRp_Term * T_RdRpnRNA)
         + (1 - p) * (k_RdRp_Term_sg * T_RdRpnRNA)
     )
     # Eq.18
@@ -84,7 +76,7 @@ def Diff(y1, t1):
         - (k_Rib_on * Rib + a * (k_NCap * N) + (math.log(2) / h_gRNA)) * gRNA
         + (k_Rib_Prime * (Rib_gRNA))
         + (k_RdRp_Prime * (RdRp_gRNA))
-        + p * (k_RdRp_Term * FunctionOfTime(t1) * T_RdRpnRNA)
+        + p * (k_RdRp_Term * T_RdRpnRNA)
     )
     # Eq.19
     dsgRNA = (
@@ -177,7 +169,7 @@ def Diff(y1, t1):
         # 22
         dVir,
         # 23
-        dSCoV2,
+        dSCoV2/(10**-6),
     ]
 
 
@@ -207,27 +199,18 @@ y1 = [
     Vir_0,
     SCoV2_0,
 ]
-t1 = np.linspace(0, 15 * 60 * 60, 15 * 60 * 60)
+
+
+t1 = np.linspace(0, 7 * 60 * 60, 7 * 60 * 60)
 fig2 = odeint(Diff, y1, t1)
 
-array = []
-for i in range(15 * 60 * 60):
-    time = FunctionOfTime(i)
-    array.append(time)
 
+# print(fig2[:, 23])
 plt.figure()
-plt.plot(t1 / 3600, fig2[:, 12], label="gRNA")
+plt.plot(t1 / 3600, fig2[:, 23], label = "SCoV2")
 plt.xlabel("Time (hr)")
-plt.ylabel("Concentration (µM)")
-# plt.yscale("log")
+plt.ylabel("Total Virions")
 plt.legend()
-plt.title("genomic RNA")
+plt.title("Base Line Viral Production")
 plt.show()
-"""
-plt.figure()
-plt.plot(array)
-plt.xlabel("Time (hr)")
-plt.ylabel("Function of Time")
-plt.legend()
-plt.show()
-"""
+
