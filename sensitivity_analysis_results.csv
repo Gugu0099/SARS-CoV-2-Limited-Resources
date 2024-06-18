@@ -1,0 +1,209 @@
+Parameter   ,FoldChange ,ViralCycleTime      ,DidNotComplete
+k_TMP       ,     0.001 ,19.190605176361146  ,False
+k_TMP       ,     0.003 ,12.516677613109113  ,False
+k_TMP       ,     0.01  , 9.265262362039572  ,False
+k_TMP       ,     0.03  , 7.7001227143119975 ,False
+k_TMP       ,     0.1   , 6.785064408117381  ,False
+k_TMP       ,     0.3   , 6.412902828679357  ,False
+k_TMP       ,     1     , 6.269962389165436  ,False
+k_TMP       ,     3     , 6.228098905644949  ,False
+k_TMP       ,    10     , 6.2131891050042904 ,False
+k_TMP       ,    30     , 6.208897340013123  ,False
+k_TMP       ,   100     , 6.207391718527347  ,False
+k_TMP       ,   300     , 6.206961204909685  ,False
+k_TMP       ,  1000     , 6.206810489804368  ,False
+k_Rel       ,     0.001 ,17.851119307372386  ,False
+k_Rel       ,     0.003 ,11.976328990915647  ,False
+k_Rel       ,     0.01  , 9.00228409192437   ,False
+k_Rel       ,     0.03  , 7.556674872479416  ,False
+k_Rel       ,     0.1   , 6.721440135621169  ,False
+k_Rel       ,     0.3   , 6.3934541764167365 ,False
+k_Rel       ,     1     , 6.269962389165436  ,False
+k_Rel       ,     3     , 6.233823172498525  ,False
+k_Rel       ,    10     , 6.220977529642521  ,False
+k_Rel       ,    30     , 6.217284406975786  ,False
+k_Rel       ,   100     , 6.215989318977452  ,False
+k_Rel       ,   300     , 6.215619054928719  ,False
+k_Rel       ,  1000     , 6.215489437395908  ,False
+k_UC        ,     0.001 ,17.851119307372333  ,False
+k_UC        ,     0.003 ,11.97632899091576   ,False
+k_UC        ,     0.01  , 9.002284091924311  ,False
+k_UC        ,     0.03  , 7.556674872479387  ,False
+k_UC        ,     0.1   , 6.721440135621166  ,False
+k_UC        ,     0.3   , 6.393454176416773  ,False
+k_UC        ,     1     , 6.269962389165436  ,False
+k_UC        ,     3     , 6.233823172498424  ,False
+k_UC        ,    10     , 6.220977529642558  ,False
+k_UC        ,    30     , 6.217284406975808  ,False
+k_UC        ,   100     , 6.215989318977378  ,False
+k_UC        ,   300     , 6.215619054928815  ,False
+k_UC        ,  1000     , 6.215489437395997  ,False
+k_Rib_on    ,     0.001 ,48.0                ,True
+k_Rib_on    ,     0.003 ,48.0                ,True
+k_Rib_on    ,     0.01  ,48.0                ,True
+k_Rib_on    ,     0.03  ,48.0                ,True
+k_Rib_on    ,     0.1   , 9.552573648761628  ,False
+k_Rib_on    ,     0.3   , 6.927988540035865  ,False
+k_Rib_on    ,     1     , 6.269962389165436  ,False
+k_Rib_on    ,     3     , 6.32077578936408   ,False
+k_Rib_on    ,    10     , 6.633015884471462  ,False
+k_Rib_on    ,    30     , 7.420968284046804  ,False
+k_Rib_on    ,   100     ,10.873503769592535  ,False
+k_Rib_on    ,   300     ,18.711499625803032  ,False
+k_Rib_on    ,  1000     ,40.31188563927464   ,False
+k_Rib_Step  ,     0.001 ,48.0                ,True
+k_Rib_Step  ,     0.003 ,48.0                ,True
+k_Rib_Step  ,     0.01  ,48.0                ,True
+k_Rib_Step  ,     0.03  ,48.0                ,True
+k_Rib_Step  ,     0.1   ,38.16170233375307   ,False
+k_Rib_Step  ,     0.3   ,14.376992354869168  ,False
+k_Rib_Step  ,     1     , 6.269962389165436  ,False
+k_Rib_Step  ,     3     , 3.6641554464378228 ,False
+k_Rib_Step  ,    10     , 2.480008976724006  ,False
+k_Rib_Step  ,    30     , 1.965388546672799  ,False
+k_Rib_Step  ,   100     , 1.6561433552384577 ,False
+k_Rib_Step  ,   300     , 1.4842840626560023 ,False
+k_Rib_Step  ,  1000     , 1.3587167885605123 ,False
+k_Cleav     ,     0.001 ,48.0                ,True
+k_Cleav     ,     0.003 ,11.591021045608407  ,False
+k_Cleav     ,     0.01  , 8.316877688006972  ,False
+k_Cleav     ,     0.03  , 7.134585781438699  ,False
+k_Cleav     ,     0.1   , 6.56189720244422   ,False
+k_Cleav     ,     0.3   , 6.352421749232035  ,False
+k_Cleav     ,     1     , 6.269962389165436  ,False
+k_Cleav     ,     3     , 6.245280728812248  ,False
+k_Cleav     ,    10     , 6.236515703695379  ,False
+k_Cleav     ,    30     , 6.234001485543038  ,False
+k_Cleav     ,   100     , 6.233120767914152  ,False
+k_Cleav     ,   300     , 6.232869076371468  ,False
+k_Cleav     ,  1000     , 6.232780978722819  ,False
+h_pp1       ,     0.001 ,18.064158113380362  ,False
+h_pp1       ,     0.003 , 9.049417862685615  ,False
+h_pp1       ,     0.01  , 7.151648328274987  ,False
+h_pp1       ,     0.03  , 6.573597008051789  ,False
+h_pp1       ,     0.1   , 6.356716404995632  ,False
+h_pp1       ,     0.3   , 6.292645489302984  ,False
+h_pp1       ,     1     , 6.269962389165436  ,False
+h_pp1       ,     3     , 6.26345566683627   ,False
+h_pp1       ,    10     , 6.261175555453643  ,False
+h_pp1       ,    30     , 6.2605238310135425 ,False
+h_pp1       ,   100     , 6.2602956996880925 ,False
+h_pp1       ,   300     , 6.260230516663112  ,False
+h_pp1       ,  1000     , 6.260207702326404  ,False
+k_RdRp_on   ,     0.001 ,48.0                ,True
+k_RdRp_on   ,     0.003 ,48.0                ,True
+k_RdRp_on   ,     0.01  ,48.0                ,True
+k_RdRp_on   ,     0.03  ,48.0                ,True
+k_RdRp_on   ,     0.1   ,17.99523746573008   ,False
+k_RdRp_on   ,     0.3   , 8.485838375809646  ,False
+k_RdRp_on   ,     1     , 6.269962389165436  ,False
+k_RdRp_on   ,     3     , 5.380285905475839  ,False
+k_RdRp_on   ,    10     , 4.854234600895803  ,False
+k_RdRp_on   ,    30     , 4.569345538408328  ,False
+k_RdRp_on   ,   100     , 4.37230700539532   ,False
+k_RdRp_on   ,   300     , 4.255259235922708  ,False
+k_RdRp_on   ,  1000     , 4.1694481082587975 ,False
+h_RdRp      ,     0.001 ,48.0                ,True
+h_RdRp      ,     0.003 ,48.0                ,True
+h_RdRp      ,     0.01  ,48.0                ,True
+h_RdRp      ,     0.03  ,48.0                ,True
+h_RdRp      ,     0.1   , 8.548695747694659  ,False
+h_RdRp      ,     0.3   , 6.6827630268501474 ,False
+h_RdRp      ,     1     , 6.269962389165436  ,False
+h_RdRp      ,     3     , 6.168471964367206  ,False
+h_RdRp      ,    10     , 6.134534288675504  ,False
+h_RdRp      ,    30     , 6.124984766711995  ,False
+h_RdRp      ,   100     , 6.1216577285949745 ,False
+h_RdRp      ,   300     , 6.120708599039951  ,False
+h_RdRp      ,  1000     , 6.120376556100264  ,False
+k_RdRp_Step ,     0.001 ,48.0                ,True
+k_RdRp_Step ,     0.003 ,48.0                ,True
+k_RdRp_Step ,     0.01  ,29.269201678570106  ,False
+k_RdRp_Step ,     0.03  ,18.559321981078035  ,False
+k_RdRp_Step ,     0.1   ,12.115582581204743  ,False
+k_RdRp_Step ,     0.3   , 8.597476409414373  ,False
+k_RdRp_Step ,     1     , 6.269962389165436  ,False
+k_RdRp_Step ,     3     , 5.028639885805024  ,False
+k_RdRp_Step ,    10     , 4.255687390490832  ,False
+k_RdRp_Step ,    30     , 3.8974360480179646 ,False
+k_RdRp_Step ,   100     , 3.7198284363542276 ,False
+k_RdRp_Step ,   300     , 3.6536313047921816 ,False
+k_RdRp_Step ,  1000     , 3.6253148428619335 ,False
+k_NCap      ,     0.001 , 8.400491422747555  ,False
+k_NCap      ,     0.003 , 7.216626240177573  ,False
+k_NCap      ,     0.01  , 6.566367080521334  ,False
+k_NCap      ,     0.03  , 6.341045634873898  ,False
+k_NCap      ,     0.1   , 6.286275531328658  ,False
+k_NCap      ,     0.3   , 6.2743359887030365 ,False
+k_NCap      ,     1     , 6.269962389165436  ,False
+k_NCap      ,     3     , 6.26844032655402   ,False
+k_NCap      ,    10     , 6.2677105623474985 ,False
+k_NCap      ,    30     , 6.267337400929907  ,False
+k_NCap      ,   100     , 6.266994126334916  ,False
+k_NCap      ,   300     , 6.266722076113071  ,False
+k_NCap      ,  1000     , 6.266824987339371  ,False
+k_Bud       ,     0.001 , 9.418196246049387  ,False
+k_Bud       ,     0.003 , 8.102013171972196  ,False
+k_Bud       ,     0.01  , 7.2273144749000275 ,False
+k_Bud       ,     0.03  , 6.766016241485709  ,False
+k_Bud       ,     0.1   , 6.483071228451473  ,False
+k_Bud       ,     0.3   , 6.344977225653894  ,False
+k_Bud       ,     1     , 6.269962389165436  ,False
+k_Bud       ,     3     , 6.2405843318761525 ,False
+k_Bud       ,    10     , 6.228497023129379  ,False
+k_Bud       ,    30     , 6.224781973724492  ,False
+k_Bud       ,   100     , 6.223442482461048  ,False
+k_Bud       ,   300     , 6.223053173192242  ,False
+k_Bud       ,  1000     , 6.22291521121866   ,False
+h_SP        ,     0.001 ,48.0                ,True
+h_SP        ,     0.003 ,48.0                ,True
+h_SP        ,     0.01  ,48.0                ,True
+h_SP        ,     0.03  ,20.105084135061812  ,False
+h_SP        ,     0.1   , 9.601316368323516  ,False
+h_SP        ,     0.3   , 7.069023189553803  ,False
+h_SP        ,     1     , 6.269962389165436  ,False
+h_SP        ,     3     , 6.1045186224726935 ,False
+h_SP        ,    10     , 6.0696938823187    ,False
+h_SP        ,    30     , 6.061449261535933  ,False
+h_SP        ,   100     , 6.0587060607836225 ,False
+h_SP        ,   300     , 6.057934907810101  ,False
+h_SP        ,  1000     , 6.057666297412868  ,False
+k_Cyto_ER   ,     0.001 ,48.0                ,True
+k_Cyto_ER   ,     0.003 ,48.0                ,True
+k_Cyto_ER   ,     0.01  ,48.0                ,True
+k_Cyto_ER   ,     0.03  ,20.711278934273587  ,False
+k_Cyto_ER   ,     0.1   ,10.031647892955688  ,False
+k_Cyto_ER   ,     0.3   , 7.2629379534108045 ,False
+k_Cyto_ER   ,     1     , 6.269962389165436  ,False
+k_Cyto_ER   ,     3     , 6.07901124733149   ,False
+k_Cyto_ER   ,    10     , 6.053056635813577  ,False
+k_Cyto_ER   ,    30     , 6.047816466268033  ,False
+k_Cyto_ER   ,   100     , 6.046151275538362  ,False
+k_Cyto_ER   ,   300     , 6.045690268064983  ,False
+k_Cyto_ER   ,  1000     , 6.04553042223017   ,False
+k_ER_ERGIC  ,     0.001 ,31.720219475705598  ,False
+k_ER_ERGIC  ,     0.003 ,19.82604901289717   ,False
+k_ER_ERGIC  ,     0.01  ,12.73767031486422   ,False
+k_ER_ERGIC  ,     0.03  , 9.299677919333782  ,False
+k_ER_ERGIC  ,     0.1   , 7.354239965527666  ,False
+k_ER_ERGIC  ,     0.3   , 6.563534822480963  ,False
+k_ER_ERGIC  ,     1     , 6.269962389165436  ,False
+k_ER_ERGIC  ,     3     , 6.195510892618606  ,False
+k_ER_ERGIC  ,    10     , 6.17201611689872   ,False
+k_ER_ERGIC  ,    30     , 6.165622420451779  ,False
+k_ER_ERGIC  ,   100     , 6.163420913994052  ,False
+k_ER_ERGIC  ,   300     , 6.162795440742592  ,False
+k_ER_ERGIC  ,  1000     , 6.16257689800868   ,False
+k_Exo       ,     0.001 ,48.0                ,True
+k_Exo       ,     0.003 ,48.0                ,True
+k_Exo       ,     0.01  ,30.56013938559756   ,False
+k_Exo       ,     0.03  ,18.677114529767397  ,False
+k_Exo       ,     0.1   ,11.607693097665639  ,False
+k_Exo       ,     0.3   , 8.196095940213727  ,False
+k_Exo       ,     1     , 6.269962389165436  ,False
+k_Exo       ,     3     , 5.458841474985316  ,False
+k_Exo       ,    10     , 5.1322971348705    ,False
+k_Exo       ,    30     , 5.038991756568394  ,False
+k_Exo       ,   100     , 5.006500205845735  ,False
+k_Exo       ,   300     , 4.9972335084921164 ,False
+k_Exo       ,  1000     , 4.993991920675822  ,False
