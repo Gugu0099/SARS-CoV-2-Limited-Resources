@@ -210,7 +210,7 @@ change = [0.001, 0.003, 0.01, 0.03, 0.1, 0.3, 1, 3, 10, 30, 100, 300, 1000]
 # file
 # f = open("Data.txt", "w")
 # f.write("k_TMP: \n")
-
+'''
 print("k_TMP:")
 for i in range(len(change)):
     k_TMP = 0.0043 * change[i]
@@ -366,12 +366,12 @@ for i in range(len(change)):
     print(fig2.t[-1]/ 3600)
     # f.write(str(fig2.t[-1]/ 3600) + "\n")
 print("done")
-
+'''
 print("k_Exo:") 
 # f.write("k_Exo: \n")
 for i in range(len(change)):
     k_Exo = 0.0002 * change[i]
-    t1 = (0, 30*60*60)
+    t1 = (0, 48*60*60)
     fig2 = solve_ivp(Diff, t1, y1, events=event)
     print(fig2.t[-1]/ 3600)
     # f.write(str(fig2.t[-1]/ 3600) + "\n")

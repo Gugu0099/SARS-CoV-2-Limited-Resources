@@ -25,9 +25,19 @@ parameters = {
     "k_Exo": 0.0002
 }
 
+# Initialize these variables globally
+k_Rib_Prime = k_Rib_Step / l_Rib_Primer
+k_Rib_Term = k_Rib_Step / l_pp1
+k_Rib_Term_SEM = k_Rib_Step / l_SEM
+k_Rib_Term_N = k_Rib_Step / l_N 
+k_RdRp_Prime = k_RdRp_Step / l_RdRp_Primer
+k_RdRp_Term = k_RdRp_Step / l_gRNA
+k_RdRp_Term_sg = k_RdRp_Step / l_sgRNA
+
 def Diff(t1, y1):
     global k_TMP, k_Rel, k_UC, k_Rib_on, k_Rib_Step, k_Cleav, h_pp1, k_RdRp_on, h_RdRp, k_RdRp_Step, k_NCap, k_Bud, h_SP, k_Cyto_ER, k_ER_ERGIC, k_Exo
-
+    global k_Rib_Prime, k_Rib_Term, k_Rib_Term_SEM, k_Rib_Term_N, k_RdRp_Prime, k_RdRp_Term, k_RdRp_Term_sg
+    
     (
         SCoV2_ACE2, endoSCoV2, cgRNA, Rib_gRNA, T_RibgRNA, pp1, RdRp_gRNA, 
         T_RdRpgRNA, nRNA, RdRp_nRNA, T_RdRpnRNA, RdRp, gRNA, sgRNA, 
@@ -95,6 +105,7 @@ def event(t1, y1):
 event.terminal = True
 event.direction = 1
 
+# Initial conditions
 y1 = [
     SCoV2_Ace2_0, endoSCoV2_0, cgRNA_0, Rib_gRNA_0, T_RibgRNA_0, pp1_0, RdRp_gRNA_0, 
     T_RdRpgRNA_0, nRNA_0, RdRp_nRNA_0, T_RdRpnRNA_0, RdRp_0, gRNA_0, sgRNA_0, 
@@ -112,11 +123,13 @@ def solve_for_param(param, base_value, scale, time_span, y1, fieldnames, lock):
         globals()[param] = base_value * scale
         print(f"Testing {param} with fold change {scale}")  # Debug print statement
         if param == "k_Rib_Step":
+            global k_Rib_Prime, k_Rib_Term, k_Rib_Term_SEM, k_Rib_Term_N
             k_Rib_Prime = k_Rib_Step / l_Rib_Primer
             k_Rib_Term = k_Rib_Step / l_pp1
             k_Rib_Term_SEM = k_Rib_Step / l_SEM
             k_Rib_Term_N = k_Rib_Step / l_N
         if param == "k_RdRp_Step":
+            global k_RdRp_Prime, k_RdRp_Term, k_RdRp_Term_sg
             k_RdRp_Prime = k_RdRp_Step / l_RdRp_Primer
             k_RdRp_Term = k_RdRp_Step / l_gRNA
             k_RdRp_Term_sg = k_RdRp_Step / l_sgRNA
